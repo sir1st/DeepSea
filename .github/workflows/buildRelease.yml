@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - master
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 defaults:
   run:
@@ -16,37 +20,43 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - id: set-version
-      run: |
-        version=$(python -c 'import sys, json; f=open("./settings.json");print(json.loads(f.read())["releaseVersion"])')
-        echo "version=$version" >> $GITHUB_OUTPUT
-
-    - name: Set up hub
-      run: |
-        sudo apt install hub -y
-
     - name: Set up Python
       uses: actions/setup-python@v5
       with:
-        python-version: '3.x'
+        python-version: '3.12'
+
+    - id: set-version
+      run: |
+        version=$(python -c 'import json; f=open("./settings.json"); print(json.loads(f.read())["releaseVersion"])')
+        echo "version=$version" >> $GITHUB_OUTPUT
 
     - name: Install dependencies
       run: |
         if [ -f ../requirements.txt ]; then pip3 install -r ../requirements.txt; fi
 
+    - name: Validate release assets
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        python ./start.py --dry-run
+
     - name: Create DeepSea Packages
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        python ./start.py -gt="$GITHUB_TOKEN"
+        python ./start.py
 
     - name: Create Release
-      run: |
-        set -x
-        assets=()
-        for asset in ./*.zip; do
-          assets+=("-a" "$asset")
-        done
-        hub release create "${assets[@]}" -d -m "Release v${{ steps.set-version.outputs.version }}" "v${{ steps.set-version.outputs.version }}"
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        shopt -s nullglob
+        assets=(./*.zip)
+        if [ ${#assets[@]} -eq 0 ]; then
+          echo "No release assets were built" >&2
+          exit 1
+        fi
+        gh release create "v${{ steps.set-version.outputs.version }}" "${assets[@]}" \
+          --draft \
+          --title "Release v${{ steps.set-version.outputs.version }}" \
+          --notes "Release v${{ steps.set-version.outputs.version }}"

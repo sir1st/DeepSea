@@ -29,7 +29,7 @@
 
 
 ## How to use
-Follow this guide to hack your Switch: https://switch.homebrew.guide
+Follow this guide to hack your Switch: https://switch.hacks.guide
 
 Download the latest release and put it on your SD Card<br />
 Send the Hekate payload to your Switch in RCM mode and launch the CFW
@@ -37,32 +37,35 @@ Send the Hekate payload to your Switch in RCM mode and launch the CFW
 
 ## Featuring
 
-| Software | Advanced Package| Normal Package | Minimal Package |
-| -------- | :-------------: | :------------: | :------------: |
-| [AIO-switch-updater](https://github.com/HamletDuFromage/aio-switch-updater) | ✅ | ✅ |  |
-| [Atmosphère](https://github.com/Atmosphere-NX/Atmosphere) | ✅ | ✅ | ✅ |
+<!-- BEGIN MODULE TABLE -->
+| Software | Advanced Package | Normal Package | Minimal Package |
+| -------- | :--------------: | :------------: | :-------------: |
+| [Atmosphere](https://github.com/Atmosphere-NX/Atmosphere) | ✅ | ✅ | ✅ |
+| [Hekate](https://github.com/CTCaer/hekate) | ✅ | ✅ | ✅ |
 | [DeepSea Assets](https://github.com/Team-Neptune/DeepSea-Assets) | ✅ | ✅ | ✅ |
-| [DeepSea Cleaner](https://github.com/Team-Neptune/DeepSea-Cleaner) | ✅ | ✅ |  |
-| [DeepSea CPR](https://github.com/Team-Neptune/CommonProblemResolver) | ✅ | ✅ |  |
+| [Homebrew App Store](https://github.com/fortheusers/hb-appstore) | ✅ | ✅ | ✅ |
+| [Sphaira](https://github.com/ITotalJustice/sphaira) | ✅ | ✅ |  |
 | [DeepSea Toolbox](https://github.com/Team-Neptune/DeepSea-Toolbox) | ✅ | ✅ |  |
+| [DeepSea Cleaner](https://github.com/Team-Neptune/DeepSea-Cleaner) | ✅ | ✅ |  |
+| [AIO-switch-updater](https://github.com/HamletDuFromage/aio-switch-updater) | ✅ | ✅ |  |
 | [EdiZon-SE](https://github.com/tomvita/EdiZon-SE) | ✅ | ✅ |  |
 | [EdiZon-Overlay](https://github.com/proferabg/EdiZon-Overlay) | ✅ | ✅ |  |
 | [Emuiibo](https://github.com/XorTroll/emuiibo) | ✅ | ✅ |  |
-| [Hekate](https://github.com/CTCaer/hekate) | ✅ | ✅ | ✅ |
-| [Homebrew App Store](https://gitlab.com/4TU/hb-appstore) | ✅ | ✅ | ✅ |
 | [JKSV](https://github.com/J-D-K/JKSV) | ✅ | ✅ |  |
-| [ldn_mitm](https://github.com/spacemeowx2/ldn_mitm) | ✅ |  |  |
-| [MissionControl](https://github.com/ndeadly/MissionControl) | ✅ |  |  |
-| [nx-ovlloader](https://github.com/WerWolv/nx-ovlloader) | ✅ | ✅ |  |
-| [NX-Shell](https://github.com/joel16/NX-Shell) | ✅ |  |  |
-| [ovlSysmodules](https://github.com/WerWolv/ovl-sysmodules) | ✅ | ✅ |  |
-| [Status Monitor Overlay](https://github.com/masagrator/Status-Monitor-Overlay) | ✅ |  |
-| [sys-clk](https://github.com/retronx-team/sys-clk) | ✅ |  |
+| [Goldleaf](https://github.com/XorTroll/Goldleaf) | ✅ | ✅ |  |
+| [sys-clk](https://github.com/retronx-team/sys-clk) | ✅ |  |  |
 | [sys-con](https://github.com/cathery/sys-con) | ✅ |  |  |
 | [sys-ftpd](https://github.com/cathery/sys-ftpd) | ✅ | ✅ |  |
-| [TegraExplorer](https://github.com/joel16/NX-Shell) | ✅ |  |  |
+| [ldn_mitm](https://github.com/spacemeowx2/ldn_mitm) | ✅ |  |  |
+| [nx-ovlloader](https://github.com/WerWolv/nx-ovlloader) | ✅ | ✅ |  |
+| [ovlSysmodules](https://github.com/WerWolv/ovl-sysmodules) | ✅ | ✅ |  |
 | [Tesla-Menu](https://github.com/WerWolv/Tesla-Menu) | ✅ | ✅ |  |
-| [Goldleaf](https://github.com/XorTroll/Goldleaf) | ✅ | ✅ |  |
+| [Status Monitor Overlay](https://github.com/masagrator/Status-Monitor-Overlay) | ✅ |  |  |
+| [DeepSea CPR](https://github.com/Team-Neptune/CommonProblemResolver) | ✅ | ✅ |  |
+| [TegraExplorer](https://github.com/suchmememanyskill/TegraExplorer) | ✅ |  |  |
+| [NX-Shell](https://github.com/joel16/NX-Shell) | ✅ |  |  |
+| [MissionControl](https://github.com/ndeadly/MissionControl) | ✅ |  |  |
+<!-- END MODULE TABLE -->
 
 
 

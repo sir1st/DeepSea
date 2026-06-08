@@ -1,5 +1,5 @@
 {
-    "releaseVersion": "4.14.0",
+    "releaseVersion": "4.15.0",
     "packages": [
         {
             "name": "minimal",
@@ -19,7 +19,9 @@
                 "hekate",
                 "deepseaassets",
                 "hbappstore",
+                "sphaira",
                 "deepseatoolbox",
+                "deepseacleaner",
                 "aioupdater",
                 "edizon",
                 "edizon-ovl",
@@ -41,7 +43,9 @@
                 "hekate",
                 "deepseaassets",
                 "hbappstore",
+                "sphaira",
                 "deepseatoolbox",
+                "deepseacleaner",
                 "aioupdater",
                 "edizon",
                 "edizon-ovl",
@@ -51,6 +55,7 @@
                 "sysclk",
                 "syscon",
                 "sysftpd",
+                "ldn_mitm",
                 "nxovlloader",
                 "ovlsysmodules",
                 "teslamenu",
@@ -115,16 +120,16 @@
                     "arguments": [".*hekate.*\\.zip"]
                 },
                 {
-                    "name": "copy",
-                    "arguments": ["bootloader/hekate_*", "bootloader/update.bin"]
-                },
-                {
-                    "name": "createDir",
+                    "name": "create_dir",
                     "arguments": ["atmosphere"]
                 },
                 {
                     "name": "copy",
-                    "arguments": ["bootloader/hekate_*", "atmosphere/reboot_payload.bin"]
+                    "arguments": ["hekate_ctcaer_*.bin", "atmosphere/reboot_payload.bin"]
+                },
+                {
+                    "name": "delete",
+                    "arguments": ["hekate_ctcaer_*.bin"]
                 }
             ]
         },
@@ -151,6 +156,16 @@
                     "arguments": [
                         ".*switch-extracttosd.*\\.zip"
                     ]
+                }
+            ]
+        },
+        "sphaira": {
+            "repo": "ITotalJustice/sphaira",
+            "regex": [".*sphaira.*\\.zip"],
+            "steps": [
+                {
+                    "name": "extract",
+                    "arguments": [".*sphaira.*\\.zip"]
                 }
             ]
         },
