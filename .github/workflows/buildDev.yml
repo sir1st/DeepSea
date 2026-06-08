@@ -18,10 +18,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
 
     - name: Set up Python
-      uses: actions/setup-python@v5
+      uses: actions/setup-python@v6
       with:
         python-version: '3.12'
 
@@ -56,7 +56,12 @@ jobs:
           echo "No release assets were built" >&2
           exit 1
         fi
-        gh release create "v${{ steps.set-version.outputs.version }}-dev" "${assets[@]}" \
-          --draft \
-          --title "DevRelease v${{ steps.set-version.outputs.version }}" \
-          --notes "DevRelease v${{ steps.set-version.outputs.version }}"
+        tag="v${{ steps.set-version.outputs.version }}-dev"
+        title="DevRelease v${{ steps.set-version.outputs.version }}"
+        notes="DevRelease v${{ steps.set-version.outputs.version }}"
+        if gh release view "$tag" >/dev/null 2>&1; then
+          gh release edit "$tag" --title "$title" --notes "$notes"
+          gh release upload "$tag" "${assets[@]}" --clobber
+        else
+          gh release create "$tag" "${assets[@]}" --draft --title "$title" --notes "$notes"
+        fi
